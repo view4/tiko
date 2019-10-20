@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Posts from "./Posts.js";
+import Header from "./Header.js";
 
-function App() {
+import "./App.css";
+
+class App extends React.Component {
+  state = {
+    posts:[{
+      id: 1,
+      title: "wii",
+      done : false,
+    },
+    {
+      id: 2,
+      title: "wii4",
+      done : false,
+    },
+  ]
+  };
+  render(){
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> Hey Adar.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header/>
+      <Posts
+       posts={this.state.posts} 
+      />
     </div>
   );
+}
 }
 
 export default App;
