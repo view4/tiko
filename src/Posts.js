@@ -7,7 +7,7 @@ class Posts extends React.Component {
   }
   render() {
     return this.props.posts.map(post => (
-      <div key={post.id}style={{ 
+      <div key={post.id} style={{ 
         padding: '1em',
         margin: '1em',
         border: '2px solid black',

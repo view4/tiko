@@ -1,10 +1,14 @@
 import React from "react";
 
 
-class Post extends React.Component {
+class Form extends React.Component {
     render() {
       return (
-<div></div>
+		<div> 
+		
+		input form here
+		</div>
       );
     }
   }
+  export default Form
