@@ -1,7 +1,7 @@
 import React from "react";
 import Posts from "./Posts.js";
 import Header from "./Header.js";
-import Form from "./form.js";
+// import Form from "./form.js";
 import DescModal from "./DescModal.js";
 
 import "./App.css";
@@ -53,7 +53,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Header />
+        <Header/>
         <Posts 
         posts={this.state.posts} 
         displayModal={this.displayModal} 

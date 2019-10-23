@@ -5,7 +5,7 @@ class Header extends React.Component {
     console.log('Gabi is right')
   }
   render() {
-    return <div style={{ width: "100%",
+    return <div style={{
     backgroundColor:'darkBlue',
     color:'white',
     fontWeight:'900',
