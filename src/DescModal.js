@@ -12,7 +12,8 @@ class DescModal extends React.Component {
             justifyContent: 'center',
             alignItems: 'center'
 
-        }}>{post.description} </div>
+        }}>{post.description}
+        <button className="xBtn" >Close Window</button> </div>
     );
   }
 }

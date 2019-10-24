@@ -9,7 +9,7 @@ class Posts extends React.Component {
     return this.props.posts.map(post => (
       <div key={post.id} style={{ 
         padding: '1em',
-        margin: '1em',
+        margin: '2em 3em',
         border: '2px solid black',
         display:'inline-flex'
 

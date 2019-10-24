@@ -17,13 +17,21 @@ body{
     align-items: center;
 }
 .modal-content {
-    width: 50%;
-    height: 50%;
+    width: 60%;
+    height: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: white;
     border-radius: 30px;
 	padding: 20px;
+
+}
+
+.xBtn{
+    position: absolute;
+    bottom:72%;
+    padding:0.2em;
+    border-radius: 3em;
 
 }

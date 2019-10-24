@@ -77,10 +77,12 @@ class Form extends React.Component {
 				</div>
 				<div>
 					<h5>Does your project have a story? </h5>
+					
 					<textarea name='story' id='project-story' />
 				</div>
 				<div>
-					<input type='submit' placeholder='submit'/> 
+					<input type='submit' placeholder='submit'
+					style={{marginTop:'1em'}}/> 
 				</div>
 			</form>
 		</div>
