@@ -23,8 +23,7 @@ class ModalContainer extends React.Component {
 	}
 	
   render() {
-	console.log(this.props)
-    return (
+  return (
       <div
         className='modal-sheet'
 		onClick={this.closeModal}
