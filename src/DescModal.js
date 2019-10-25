@@ -2,8 +2,7 @@ import React from "react";
 
 class DescModal extends React.Component {
   render() {
-    var post = this.props.post;
-	console.log('sure thing')
+    var project = this.props.project;
     return (
         <div style={{
             width: '100%',
@@ -12,8 +11,8 @@ class DescModal extends React.Component {
             justifyContent: 'center',
             alignItems: 'center'
 
-        }}>{post.description}
-        <button className="xBtn" >Close Window</button> </div>
+        }}>{project.story}
+        </div>
     );
   }
 }

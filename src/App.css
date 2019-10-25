@@ -25,6 +25,7 @@ body{
     background-color: white;
     border-radius: 30px;
 	padding: 20px;
+	flex-direction: column;
 
 }
 
@@ -34,4 +35,11 @@ body{
     padding:0.2em;
     border-radius: 3em;
 
+}
+
+.value {
+    border: 1px solid black;
+    background: lightgray;
+    padding: 3px;
+    margin: 7px;
 }

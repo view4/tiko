@@ -14,6 +14,7 @@ class Form extends React.Component {
 	}
 	addProject(event) {
 		 event.preventDefault();
+		var allProjects = localStorage.getItem('allProjects') || [];
 
 		 // take data from form and parse into object
 		const data = new FormData(event.target);
@@ -30,14 +31,18 @@ class Form extends React.Component {
 			title,
 			story
 		};
-
+		projectObject.id = allProjects.length;
+		projectObject.done = false;
 
 		// save to local storage 
-		var allProjects = localStorage.getItem('allProjects') || [];
-
-		if(allProjects.length) {
+		
+		
+		
+		if (allProjects.length) {
 			allProjects = JSON.parse(allProjects)
 		} 
+
+		
 		allProjects.push(projectObject);
 
 		allProjects = JSON.stringify(allProjects);
@@ -53,8 +58,15 @@ class Form extends React.Component {
 		this.setState({
 			values
 		});
-	}
+		document.getElementById('project-values').value = ''
+	};
+
     render() {
+	var { values } = this.state;
+	console.log(values)
+	const valueItems = values.map( (value) =><span className='value'> 
+								{value.slice(0,10)} {value.length > 10 ? '...': null}
+							</span> )
       return (
 		<div>
 			<form onSubmit={this.addProject}>
@@ -69,7 +81,8 @@ class Form extends React.Component {
 							padding: '3px',
 							backgroundColor: 'blanchedalmond'
 						}}
-					> --> </span>
+					> Add </span>
+					{valueItems}
 				</div>
 				<div>
 					<h5>What would you like to name your project?  </h5>

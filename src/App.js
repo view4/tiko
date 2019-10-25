@@ -16,23 +16,16 @@ class App extends React.Component {
   }
   state = {
     displayModal: false,
-    posts: [
-      {
-        id: 1,
-        title: "wii",
-        done: false,
-        description: "crumpets"
-      },
-      {
-        id: 2,
-        title: "wii4",
-        done: false,
-        description: "kidney pie"
-      }
-    ],
     activeModalId: null,
 	modalKey: 'Project-Input',
+	projects: []
   };
+
+  componentWillMount () {
+	var projects = localStorage.getItem('allProjects') || [];
+	projects = JSON.parse(projects)
+	this.setState({projects})
+  }
   displayModal() {
     this.setState({
       displayModal: true
@@ -47,11 +40,11 @@ class App extends React.Component {
   getPost() {
     //var posts = this.state.posts;
    // var id = this.state.activeModalId;
-	var { posts, activeModalId: id } = this.state // This is a different way to declare multiple vars, from the same object (saw i the internship), it's called object destructuring
+	var { projects, activeModalId: id } = this.state // This is a different way to declare multiple vars, from the same object (saw i the internship), it's called object destructuring
     
-	for (var i = 0; i < posts.length; i++) {
-      if (posts[i].id == id) {
-        return posts[i];
+	for (var i = 0; i < projects.length; i++) {
+      if (projects[i].id == id) {
+        return projects[i];
       }
     }
   }
@@ -74,11 +67,12 @@ class App extends React.Component {
         <Header openForm={this.openForm}/>
         <Posts 
         posts={this.state.posts} 
+		projects={this.state.projects}
         displayModal={this.displayModal} 
         changeActiveModalId={this.changeActiveModalId} />
         {this.state.displayModal ? (
           <ModalContainer 
-			post={this.getPost()} 
+			project={this.getPost()} 
 			display={this.state.displayModal} 
 			modalKey={this.state.modalKey}
 			closeModal={this.closeModal}

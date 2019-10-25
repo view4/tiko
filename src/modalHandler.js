@@ -9,15 +9,15 @@ class ModalContainer extends React.Component {
 		this.closeModal = this.closeModal.bind(this);
 	}
 	renderModal() {
-		var {post, modalKey} = this.props;
+		var {project, modalKey} = this.props;
 		if (modalKey == 'Project-Description') {
-			return < DescModal post={post}/>
+			return < DescModal project={project}/>
 		} else if (modalKey == 'Project-Input') {
 			return <Form/>
 		}
 	}
 	closeModal(e) {
-		if (e.target.classList[0] == 'modal-sheet'){	
+		if (e.target.classList[0] == 'modal-sheet' || e.target.classList[0] == 'esc'){	
 			this.props.closeModal();
 		}
 	}
@@ -28,7 +28,10 @@ class ModalContainer extends React.Component {
         className='modal-sheet'
 		onClick={this.closeModal}
       >
-        <div className='modal-content'> {this.renderModal()} </div>
+        <div className='modal-content'>
+			<div className='esc'> Close Window </div>
+			{this.renderModal()} 
+		</div>
         
       </div>
     );
