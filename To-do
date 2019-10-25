@@ -1,0 +1,29 @@
+Things for us still to be doing: 
+
+Convert to redux: 
+	- I think it would be a good thing for us to learn. 
+		- it's usually good to learn
+	- I think it may be abit difficult, and a way to make it even better portfolio wise than the to-do app 
+	- I think it would make it easier to manage a lot of the data flow. 
+	- Should make state and props more accessible. 
+		- probably a goood thing to be doing before it gets too big. 
+
+Link to firebase: 
+	- easier than setting up backend. 
+	- Also a good thing to be using. 
+	- Can provide live notifications. 
+	- Better way to mange the data 
+	--> Therefore we may have to think carefully about what kind of data we want to hold for each person etc..
+
+Improve UX/UI/design (continuous): 
+	- Perhaps we could ask Ivan to help with this (esp. if he is looking for such positions)
+	- Design is something I'm bad at would like to improve. 
+	- Ruins the feel of the app otherwise.
+	- especially if we put on our portfolio it should be something which we are kind of happy to show other people. 
+
+
+Perhaps we could refine/ review the code a bit: 
+	- improve readibility and usability. 
+	- Good practice, a chance to learn. 
+	- Probs good if we build on top of what we have.
+
