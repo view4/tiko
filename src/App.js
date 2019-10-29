@@ -6,6 +6,10 @@ import DescModal from "./DescModal.js";
 import ModalContainer from "./modalHandler.js";
 import "./App.css";
 
+import updateProjects from './actions/updateProjects'
+
+import { connect } from "react-redux";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -18,7 +22,6 @@ class App extends React.Component {
     displayModal: false,
     activeModalId: null,
 	modalKey: 'Project-Input',
-	projects: []
   };
 
   componentWillMount () {
@@ -28,7 +31,8 @@ class App extends React.Component {
 
     } 
     
-    this.setState({projects})
+    //this.setState({projects})
+	//this.props.updateProjects(projects)
   }
   displayModal() {
     this.setState({
@@ -44,8 +48,8 @@ class App extends React.Component {
   getPost() {
     //var posts = this.state.posts;
    // var id = this.state.activeModalId;
-	var { projects, activeModalId: id } = this.state // This is a different way to declare multiple vars, from the same object (saw i the internship), it's called object destructuring
-    
+	var { activeModalId: id } = this.state // This is a different way to declare multiple vars, from the same object (saw i the internship), it's called object destructuring
+    var projects = this.props.projects;
 	for (var i = 0; i < projects.length; i++) {
       if (projects[i].id == id) {
         return projects[i];
@@ -66,12 +70,13 @@ class App extends React.Component {
 	})
   }
   render() {
+  console.log(this.props)
     return (
       <div className="App">
         <Header openForm={this.openForm}/>
         <Posts 
         posts={this.state.posts} 
-		projects={this.state.projects}
+		projects={this.props.projects}
         displayModal={this.displayModal} 
         changeActiveModalId={this.changeActiveModalId} />
         {this.state.displayModal ? (
@@ -87,4 +92,11 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+	...state
+});
+
+const mapDispatchToProps = dispatch => ({
+	updateProjects: (payload) => dispatch(updateProjects(payload))
+});
+export default connect(mapStateToProps, mapDispatchToProps)(App)
