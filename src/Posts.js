@@ -14,7 +14,9 @@ class Posts extends React.Component {
         display:'inline-flex'
 
       }}
-      onClick={()=>this.openPostDesc(project.id)}> {project.story}</div>
+      onClick={()=>this.openPostDesc(project.id)}
+      > {project.story}
+      </div>
     ));
   }
 }

@@ -22,9 +22,13 @@ class App extends React.Component {
   };
 
   componentWillMount () {
-	var projects = localStorage.getItem('allProjects') || [];
-	projects = JSON.parse(projects)
-	this.setState({projects})
+    var projects = localStorage.getItem('allProjects') || [];
+    if (projects.length) {
+      projects = JSON.parse(projects)
+
+    } 
+    
+    this.setState({projects})
   }
   displayModal() {
     this.setState({
