@@ -1,14 +1,19 @@
 import React from "react";
+import setModalKey from './actions/setModal.js';
+import { connect } from "react-redux";
+
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    this.openForm = this.openForm.bind(this);
+	this.openForm = this.openForm.bind(this); // Don't understand why but this was needed?!?'
   }
 
   openForm() {
-    this.props.openForm();
-  }
+  console.log(this)
+    this.props.setModalKey('Project-Input');
+  };
+
   render() {
     return (
       <div
@@ -42,4 +47,13 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+const mapStateToProps = state => ({
+	...state
+});
+
+const mapDispatchToProps = dispatch => ({
+	setModalKey: (payload) => dispatch(setModalKey(payload)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header)
+

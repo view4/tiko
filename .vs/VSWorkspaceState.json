@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\src"
+    "\\src",
+    "\\src\\actions",
+    "\\src\\reducers"
   ],
-  "SelectedNode": "\\src\\logo.svg",
+  "SelectedNode": "\\src\\modalHandler.js",
   "PreviewInSolutionExplorer": false
 }

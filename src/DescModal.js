@@ -1,14 +1,17 @@
 import React from "react";
+import setModalKey from './actions/setModal.js';
+import { connect } from "react-redux";
 
 class DescModal extends React.Component {
   render() {
-    var project = this.props.project;
-	var {values} = this.props.project;
-		const valueItems = values.map( (value) =><span className='value'> 
+		var { projects, activeModalId } = this.props;
+		var project = projects[activeModalId];
+		var values = project.values;
+		const valueItems = values.map( (value) =><span className='value' key={value}> 
 								{value.slice(0,10)} {value.length > 10 ? '...': null}
 							</span> )
     return (
-        <div clasName='projectModal' style={{
+        <div className='projectModal' style={{
             width: '100%',
             height:' 100%',
             display: 'flex',
@@ -31,4 +34,12 @@ class DescModal extends React.Component {
   }
 }
 
-export default DescModal;
+const mapStateToProps = state => ({
+	...state
+});
+
+const mapDispatchToProps = dispatch => ({
+
+});
+
+export default connect(mapStateToProps)(DescModal)

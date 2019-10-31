@@ -1,5 +1,5 @@
 import React from "react";
-
+import firebase from './firebase.js'
 
 class Form extends React.Component {
 	constructor(props) {
@@ -36,18 +36,19 @@ class Form extends React.Component {
 
 		// save to local storage 
 		
-		
-		
-		if (allProjects.length) {
+		/*if (allProjects.length) {
 			allProjects = JSON.parse(allProjects)
 		} 
-
-		
 		allProjects.push(projectObject);
 
-		allProjects = JSON.stringify(allProjects);
+		allProjects= JSON.stringify(allProjects);
 
-		localStorage.setItem('allProjects', allProjects)
+		localStorage.setItem('allProjects', allProjects) */
+
+
+		// adding to firebase: 
+		var projectsRef = firebase.database().ref('projects');
+		projectsRef.push(projectObject);
 
 	};
 
@@ -58,13 +59,12 @@ class Form extends React.Component {
 		this.setState({
 			values
 		});
-		document.getElementById('project-values').value = ''
+		document.getElementById('project-values').value = '';
 	};
 
     render() {
 	var { values } = this.state;
-	console.log(values)
-	const valueItems = values.map( (value) =><span className='value'> 
+	const valueItems = values.map( (value) =><span className='value' key={value}> 
 								{value.slice(0,10)} {value.length > 10 ? '...': null}
 							</span> )
       return (
