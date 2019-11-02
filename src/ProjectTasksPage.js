@@ -2,14 +2,14 @@ import React from "react";
 import setModalKey from './actions/setModal.js';
 import { connect } from "react-redux";
 
-class DescModal extends React.Component {
+class TaskModal extends React.Component {
   render() {
 		var { projects, activeModalId } = this.props;
 		var project = projects[activeModalId];
-		var values = project.values;
-		const valueItems = values.map( (value) =><span className='value' key={value}> 
-								{value.slice(0,10)} {value.length > 10 ? '...': null}
-							</span> )
+		//var values = project.values;
+		//const valueItems = values.map( (value) =><span className='value' key={value}> 
+		//						{value.slice(0,10)} {value.length > 10 ? '...': null}
+		//					</span> )
     return (
         <div className='projectModal' style={{
             width: '100%',
@@ -21,15 +21,7 @@ class DescModal extends React.Component {
 
         }}>
 			<div className='modal-content'>
-				<div> 
-					<h3>{project.title}</h3> 
-				</div>
-				<div>
-					{valueItems}
-				</div>
-				<div>
-					{project.story}
-				</div>
+				Tasks in here now
 			</div>
 		</div>
     );
@@ -44,4 +36,4 @@ const mapDispatchToProps = dispatch => ({
 
 });
 
-export default connect(mapStateToProps)(DescModal)
+export default connect(mapStateToProps)(TaskModal)

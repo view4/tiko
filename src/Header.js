@@ -10,7 +10,6 @@ class Header extends React.Component {
   }
 
   openForm() {
-  console.log(this)
     this.props.setModalKey('Project-Input');
   };
 

@@ -1,7 +1,6 @@
 import React from "react";
 import Posts from "./Posts.js";
 import Header from "./Header.js";
-// import Form from "./form.js";
 import DescModal from "./DescModal.js";
 import ModalContainer from "./modalHandler.js";
 import "./App.css";
@@ -20,11 +19,8 @@ class App extends React.Component {
 	this.props.fetchProjects();
   }
   
-
   render() {
-  console.log(this.props)
 	var {modalKey = null} = this.props
-	console.log(modalKey)
     return (
       <div className="App">
         <Header openForm={this.openForm}/>
